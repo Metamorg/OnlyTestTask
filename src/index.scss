@@ -1,0 +1,29 @@
+:root {
+  --color-primary: #f4f5f9;
+  --color-text-dark: #42567a;
+  --color-text-light: #5d5f66;
+  --color-accent-blue: #5d5fef;
+  --color-accent-pink: #ef5da8;
+  --font-family-main: 'PT Sans', sans-serif;
+  --font-family-title: 'PT Sans', sans-serif;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-main);
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

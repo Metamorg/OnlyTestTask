@@ -1,0 +1,130 @@
+.circle-nav-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.circle-nav-controls__counter {
+  font-family: var(--font-family-main);
+  font-weight: 400;
+  font-size: 14px;
+  color: #42567A;
+  opacity: 1;
+  margin: 0;
+}
+
+.circle-nav-controls__buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.circle-nav-controls__button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #42567A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s;
+  padding: 0;
+  color: #42567A;
+}
+
+.circle-nav-controls__button:hover:not(.circle-nav-controls__button--disabled) {
+  background-color: transparent;
+}
+
+.circle-nav-controls__button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.circle-nav-controls__button--disabled:hover {
+  background-color: transparent;
+}
+
+.circle-nav-controls__dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.circle-nav-controls__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(66, 86, 122, 0.3);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.circle-nav-controls__dot:hover {
+  background-color: rgba(66, 86, 122, 0.5);
+}
+
+.circle-nav-controls__dot--active {
+  background-color: var(--color-text-dark);
+  width: 8px;
+  height: 8px;
+}
+
+@media (max-width: 768px) {
+  .circle-nav-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    position: relative;
+  }
+
+  .circle-nav-controls__counter {
+    font-size: 14px;
+    color: #42567A;
+    margin: 0;
+    order: 1;
+  }
+
+  .circle-nav-controls__buttons {
+    gap: 10px;
+    order: 2;
+  }
+
+  .circle-nav-controls__button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .circle-nav-controls__dots {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+    gap: 6px;
+    order: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .circle-nav-controls__dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .circle-nav-controls__dot--active {
+    width: 8px;
+    height: 8px;
+  }
+}
+
