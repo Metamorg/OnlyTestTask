@@ -41,27 +41,32 @@ export const CircleNav: React.FC<CircleNavProps> = ({ total, active, setActive, 
     const visual = dot.querySelector('.circle-nav__dot-visual');
     const label = dot.querySelector('.circle-nav__dot-label');
   
-    const tl = gsap.timeline({ defaults: { duration: 0.3, ease: 'circ.out', overwrite: 'auto' } });
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out', overwrite: 'auto' } });
   
     if (state === 'active' || state === 'hover') {
-      tl.to(visual, {
-        width: DOT_SIZE_LARGE,
-        height: DOT_SIZE_LARGE,
-        backgroundColor: '#f4f5f9',
-        border: '1px solid #303E58',
-      })
-      .to(label, {
+      tl.to(label, {
         opacity: 1,
         scale: 1,
-        duration: 0.2,
-      }, "-=0.2");
+        duration: 0.05,
+      }, 0)
+      .to(visual, {
+        width: DOT_SIZE_LARGE,
+        height: DOT_SIZE_LARGE,
+        duration: 0.4,
+      }, 0)
+      .to(visual, {
+        backgroundColor: '#F4F5F9',
+        border: '1px solid #303E58',
+        duration: 0.4,
+      }, 0);
     } else { 
       tl.to(visual, {
         width: DOT_SIZE_SMALL,
         height: DOT_SIZE_SMALL,
         backgroundColor: '#42567A',
         border: '1px solid transparent',
-        ease: 'circ.in'
+        ease: 'circ.in',
+        duration: 0.3
       })
       .to(label, {
         opacity: 0,
@@ -280,7 +285,7 @@ export const CircleNav: React.FC<CircleNavProps> = ({ total, active, setActive, 
             onClick={() => setActive(index)}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
-            className="circle-nav__dot-button"
+            className={`circle-nav__dot-button ${index === active ? 'circle-nav__dot-button--active' : ''}`}
             aria-label={`Go to period ${index + 1}`}
             style={{
               transform: `translate(-50%, -50%) translate(${point.x}px, ${point.y}px)`,

@@ -1,5 +1,6 @@
 .circle-nav {
   position: relative;
+  z-index: 11;
 }
 
 .circle-nav__rotatable {
@@ -25,17 +26,29 @@
   background: none;
   cursor: pointer;
   z-index: 2;
+  transition: z-index 0s;
+}
+
+.circle-nav__dot-button:hover {
+  z-index: 15;
+}
+
+.circle-nav__dot-button--active {
+  z-index: 20;
 }
 
 .circle-nav__dot-visual {
   position: absolute;
   top: 50%;
   left: 50%;
+  background-color: #f4f5f9;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 25;
+  isolation: isolate;
 }
 
 .circle-nav__dot-label {
@@ -48,7 +61,7 @@
 .circle-nav__category-display {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 45%;
   display: flex;
   align-items: center;
   white-space: nowrap;
